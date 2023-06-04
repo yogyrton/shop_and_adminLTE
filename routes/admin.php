@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', AdminController::class);
+Route::get('/', AdminController::class)->name('admin.index');
 
 Route::resources([
     'categories' => CategoryController::class,
