@@ -26,22 +26,34 @@
             ('price') }}">
             </div>
 
-            <select class="form-select" name="category_id" aria-label="Default select example">
-                <option value="{{null}}" selected>Категория</option>
+            <div class="form-group">
+                <label>Категория</label>
+                <select  name="category_id"  style="width: 100%;">
+                    <option value={{ null }}>Выберите категорию</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-                @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->title }}</option>
-                @endforeach
+            <div class="form-group">
+                <label>Теги</label>
+                <select class="tags" name="tags[]" multiple="multiple"  data-placeholder="Выберите теги" style="width: 100%;">
+                    @foreach($tags as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->title }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-            </select>
 
-            <select class="form-select" name="color_id" aria-label="Default select example">
-                <option value="{{null}}" selected>Цвет</option>
-
-                @foreach($colors as $color)
-                   <option value="{{ $color->id }}">{{ $color->title }}</option>
-                @endforeach
-            </select>
+            <div class="form-group">
+                <label>Цвета</label>
+                <select class="colors" multiple="multiple" name="colors[]" data-placeholder="Выберите цвета" style="width: 100%;">
+                    @foreach($colors as $color)
+                        <option value="{{ $color->id }}">{{ $color->title }}</option>
+                    @endforeach
+                </select>
+            </div>
 
             <button type="submit" class="btn btn-primary">Создать</button>
         </form>

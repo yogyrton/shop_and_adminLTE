@@ -7,8 +7,10 @@ use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Category;
 use App\Models\Color;
+use App\Models\ColorProduct;
 use App\Models\Product;
-use Illuminate\Http\Request;
+use App\Models\ProductTag;
+use App\Models\Tag;
 
 class ProductController extends Controller
 {
@@ -24,15 +26,29 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $colors = Color::all();
+        $tags = Tag::all();
 
-        return view('admin.products.create', compact('colors', 'categories'));
+        return view('admin.products.create', compact('colors', 'categories', 'tags'));
     }
 
     public function store(ProductStoreRequest $request)
     {
         $data = $request->validated();
+        $product = Product::query()->create($data);
 
-        Product::query()->create($data);
+        foreach ($data['tags'] as $tag) {
+            ProductTag::query()->create([
+                'product_id' => $product->id,
+                'tag_id' => $tag,
+            ]);
+        }
+
+        foreach ($data['colors'] as $color) {
+            ColorProduct::query()->create([
+                'product_id' => $product->id,
+                'color_id' => $color,
+            ]);
+        }
 
         return to_route('products.index');
     }
@@ -41,8 +57,9 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $colors = Color::all();
+        $tags = Tag::all();
 
-        return view('admin.products.edit', compact('product', 'categories', 'colors'));
+        return view('admin.products.edit', compact('product', 'categories', 'colors', 'tags'));
     }
 
     /**

@@ -26,7 +26,8 @@ class ProductStoreRequest extends FormRequest
             'quantity' => 'required',
             'price' => 'required',
             'category_id' => 'required',
-            'color_id' => 'required',
+            'colors' => 'required|array',
+            'tags' => 'required|array'
         ];
     }
 }

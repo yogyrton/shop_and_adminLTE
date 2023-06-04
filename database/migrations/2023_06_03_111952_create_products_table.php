@@ -20,7 +20,6 @@ return new class extends Migration
             $table->decimal('price');
 
             $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Color::class)->constrained()->cascadeOnDelete();
 
             $table->timestamps();
         });

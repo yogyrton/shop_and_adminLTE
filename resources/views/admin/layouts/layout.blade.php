@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('adminlte/dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css') }}">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -71,6 +72,13 @@
 <script src={{ asset('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}></script>
 <!-- AdminLTE App -->
 <script src={{ asset('adminlte/dist/js/adminlte.js') }}></script>
+<!-- Select2 -->
+<script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>
+
+<script>
+    $('.tags').select2()
+    $('.colors').select2()
+</script>
 
 </body>
 </html>

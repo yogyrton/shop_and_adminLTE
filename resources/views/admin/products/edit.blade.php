@@ -27,21 +27,14 @@
             $product->price }}">
         </div>
 
-        <select class="form-select" name="category_id" aria-label="Default select example">
-            <option value="{{null}}" selected>Категория</option>
-
-            @foreach($categories as $category)
-                <option @selected($category->id === $product->category_id) value="{{ $category->id }}">{{ $category->title }}</option>
-            @endforeach
-
-        </select>
-
-        <select class="form-select" name="color_id" aria-label="Default select example">
-
-            @foreach($colors as $color)
-                <option @selected($color->id === $product->color_id) value="{{ $color->id }}">{{ $color->title }}</option>
-            @endforeach
-        </select>
+        <div class="form-group">
+            <label>Категория</label>
+            <select  name="category_id"  style="width: 100%;">
+                @foreach($categories as $category)
+                    <option @selected($category->id === $product->category_id) value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
+            </select>
+        </div>
 
         <button type="submit" class="btn btn-primary">Редактировать</button>
     </form>

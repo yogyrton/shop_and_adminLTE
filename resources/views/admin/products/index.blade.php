@@ -13,7 +13,6 @@
             <th scope="col">Количество</th>
             <th scope="col">Цена</th>
             <th scope="col">Категория</th>
-            <th scope="col">Цвет</th>
             <th scope="col">Редактировать</th>
             <th scope="col">Удалить</th>
         </tr>
@@ -28,7 +27,7 @@
                 <td>{{ $product->quantity }}</td>
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->category->title }}</td>
-                <td>{{ $product->color->title }}</td>
+
 
                 <td>
                     <form action="{{ route('products.edit', $product) }}" method="get">
