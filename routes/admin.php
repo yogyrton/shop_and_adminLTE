@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,5 +16,5 @@ Route::resources([
     'products' => ProductController::class,
     'colors' => ColorController::class,
     'tags' => TagController::class,
+    'users' => UserController::class,
 ]);
-
