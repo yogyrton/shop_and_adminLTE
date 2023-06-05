@@ -1,7 +1,19 @@
 <template>
-    <div>
-        <h1 class="mt-5">MAIN PAGE</h1>
-    </div>
+    <nav>
+        <ul class="nav justify-content-center">
+
+            <li class="nav-item">
+                <router-link :to="{ name: 'main' }" class="nav-link" >Главная</router-link>
+            </li>
+
+            <li class="nav-item">
+                <router-link :to="{ name: 'products' }" class="nav-link" >Товары</router-link>
+            </li>
+
+        </ul>
+    </nav>
+
+    <router-view></router-view>
 </template>
 
 <script>
