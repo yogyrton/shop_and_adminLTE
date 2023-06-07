@@ -4,7 +4,7 @@
         <h1>PRODUCTS LIST</h1>
 
         <div
-            v-for="product in products" :key="product"
+            v-for="product in products" :key="product.id"
             class="row align-items-start">
 
             <ProductList
@@ -35,7 +35,8 @@ export default {
         getAllProducts() {
             axios.get('/api/products')
                 .then(res => {
-                    this.products = res.data
+                    // console.log(res.data.data)
+                    this.products = res.data.data
                 })
 
         }

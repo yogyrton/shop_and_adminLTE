@@ -10,6 +10,10 @@
                 <router-link :to="{ name: 'products' }" class="nav-link" >Товары</router-link>
             </li>
 
+            <li class="nav-item">
+                <router-link :to="{ name: 'cart' }" class="nav-link" >Корзина</router-link>
+            </li>
+
         </ul>
     </nav>
 
